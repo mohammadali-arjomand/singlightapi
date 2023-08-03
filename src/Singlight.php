@@ -14,8 +14,16 @@ class Singlight {
         die;
     }
     public static function routes() {
-        Monster\App\Route::get("/assets/{filename}", function ($filename) {
-            echo $filename;
+        \Monster\App\Route::get("/controllers/{class}/{method}", function ($class, $method) {
+            $class = "\\Monster\\App\\Controllers\\" . $class;
+            $instance = new $class;
+            $instance->$method();
+        });
+        \Monster\App\Route::get(".*", function () {
+            $content = "404 | Not Found";
+            if (file_exists(__DIR__ . "/../../../../view/index.html"))
+                $content = file_get_contents(__DIR__ . "/../../../../view/index.html");
+            echo $content;
         });
     }
 }
