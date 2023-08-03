@@ -13,4 +13,9 @@ class Singlight {
         echo json_encode($json);
         die;
     }
+    public static function routes() {
+        Monster\App\Route::get("/assets/{filename}", function ($filename) {
+            echo $filename;
+        });
+    }
 }
