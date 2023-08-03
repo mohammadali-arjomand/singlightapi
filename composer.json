@@ -1,0 +1,20 @@
+{
+    "name": "arjomand/singlightapi",
+    "description": "A library for connect SinglightJs to ApiMonster",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Arjomand\\SinglightApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MohammadAli Arjomand",
+            "email": "ma.arjomand1387@gmail.com"
+        }
+    ],
+    "require": {
+        "darkphp/apimonster": ">=1.4.0"
+    }
+}
