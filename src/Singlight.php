@@ -10,6 +10,7 @@ class Singlight {
             "message" => $message
         ];
         http_response_code($code);
+        header("Content-type: application/json;charset=UTF-8");
         echo json_encode($json);
         die;
     }
