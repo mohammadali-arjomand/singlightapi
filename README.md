@@ -1,5 +1,5 @@
 # SinglightAPI
-SinglightAPI is a library for connect [SinglightJs](https://github.com/mohammadali-arjomand/singlightjs) to [API-Monster](https://github.com/ReactMVC/API-Monster)
+SinglightAPI is a library for connect [SinglightJs](https://github.com/mohammadali-arjomand/singlightjs) to [API-Monster](https://github.com/ReactMVC/API-Monster). in **SinglightAPI** you can create SPAs without create API
 
 # Installation
 For using **SinglightAPI** you must create a **API-Monster** Project (`v1.4.0` or higher)
