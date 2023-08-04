@@ -25,9 +25,11 @@ class Singlight {
             $instance->$method();
         });
         \Monster\App\Route::get(".*", function () {
-            $content = "404 | Not Found";
+            $content = "<h1>404 Not Found</h1>";
+            http_response_code(404);
             if (file_exists(__DIR__ . "/../../../../view/index.html"))
                 $content = file_get_contents(__DIR__ . "/../../../../view/index.html");
+                http_response_code(200);
             $content = preg_replace_callback("/@assets\((.*?)\)/", function ($match) {
                 $dir = __DIR__ . "/../../../../view/" . $match[1];
                 if (file_exists($dir)) {
