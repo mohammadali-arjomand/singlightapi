@@ -23,6 +23,15 @@ class Singlight {
             $content = "404 | Not Found";
             if (file_exists(__DIR__ . "/../../../../view/index.html"))
                 $content = file_get_contents(__DIR__ . "/../../../../view/index.html");
+            $content = preg_replace_callback("/@assets\((.*?)\)/", function ($match) {
+                $dir = __DIR__ . "/../../../../view/" . $match[1];
+                if (file_exists($dir)) {
+                    if (substr($dir, strlen($dir)-3, 3) == "css") $meme = "text/css";
+                    else $meme = mime_content_type($dir);
+                    return "data:" . $meme . ";base64," . base64_encode(file_get_contents($dir));
+                }
+                return "";
+            }, $content);
             echo $content;
         });
     }
