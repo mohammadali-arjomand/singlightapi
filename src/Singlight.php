@@ -13,6 +13,10 @@ class Singlight {
         echo json_encode($json);
         die;
     }
+    public static function compact($params) {
+        header("Content-type: application/json;charset=UTF-8");
+        echo json_encode($params);
+    }
     public static function routes() {
         \Monster\App\Route::get("/controllers/{class}/{method}", function ($class, $method) {
             $class = "\\Monster\\App\\Controllers\\" . $class;
