@@ -15,6 +15,7 @@ class Singlight {
     }
     public static function compact($params) {
         header("Content-type: application/json;charset=UTF-8");
+        if (!isset($params["ok"])) $params["ok"] = true;
         echo json_encode($params);
     }
     public static function routes() {
