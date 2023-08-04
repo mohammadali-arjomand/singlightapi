@@ -4,14 +4,13 @@ namespace Arjomand\SinglightApi;
 
 class Singlight {
     public static function error(Int $code=403, String $message="") {
-        $json = [
+        http_response_code($code);
+        header("Content-type: application/json;charset=UTF-8");
+        echo json_encode([
             "ok" => false,
             "code" => $code,
             "message" => $message
-        ];
-        http_response_code($code);
-        header("Content-type: application/json;charset=UTF-8");
-        echo json_encode($json);
+        ]);
         die;
     }
     public static function compact($params) {
